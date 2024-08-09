@@ -50,7 +50,7 @@ struct idotmatrix_swiftApp: App {
 //                    }
 //                }
         }, label: {
-            Text(viewModel.deviceStatus == .connected ? "On" : "Off")
+            Image(systemName: viewModel.labelIconSystemImage)
         }).menuBarExtraStyle(.window)
     }
 }

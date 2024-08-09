@@ -46,6 +46,19 @@ import SwiftBluetooth
         }
     }
     
+    var labelIconSystemImage: String {
+        switch deviceStatus {
+        case .on:
+            "xmark.icloud"
+        case .searching:
+            "magnifyingglass"
+        case .connected:
+            "checkmark.icloud"
+        case .error(let _):
+            "exclamationmark.icloud"
+        }
+    }
+    
     init() {
         central = CentralManager()
         searchAgain()
