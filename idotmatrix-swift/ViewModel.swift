@@ -96,9 +96,6 @@ import SwiftBluetooth
                         print(error)
                     }
                     deviceStatus = .connected
-                    print("services: \(device?.services)")
-                    print("state: \(device?.state.rawValue)")
-                    print("can send without response: \(device?.canSendWriteWithoutResponse)")
                     if let service = try await device?.discoverServices().first, let character = try? await peripheral.discoverCharacteristics(for: service).first {
                         self.character = character
                     }
