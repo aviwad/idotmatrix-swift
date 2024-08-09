@@ -17,28 +17,26 @@ struct idotmatrix_swiftApp: App {
         
         @ViewBuilder var common: some View {
             VStack(spacing: 5) {
-                Text("Common")
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                            if viewModel.screenTurnedOn {
-                                Button("Screen Off") {
-                                    viewModel.screenOff()
-                                }
-                            } else {
-                                Button("Screen On") {
-                                    viewModel.screenOn()
-                                }
+                Text("Common Screen Behaviour")
+                HStack {
+                        if viewModel.screenTurnedOn {
+                            Button("Off") {
+                                viewModel.screenOff()
                             }
-                            Button("Sync Time") {
-                                viewModel.setTime()
+                        } else {
+                            Button("On") {
+                                viewModel.screenOn()
                             }
-                            Button("Freeze Screen") {
-                                viewModel.freezeScreen()
-                            }
-                            Button("Flip Screen") {
-                                viewModel.flipScreen()
-                            }
-                    }
+                        }
+                        Button("Sync Time") {
+                            viewModel.setTime()
+                        }
+                        Button("Freeze") {
+                            viewModel.freezeScreen()
+                        }
+                        Button("Flip") {
+                            viewModel.flipScreen()
+                        }
                 }
                 
                 Slider(
@@ -114,6 +112,40 @@ struct idotmatrix_swiftApp: App {
             }
         }
         
+        @ViewBuilder var chronograph: some View {
+            VStack(spacing: 5) {
+                Text("Chronograph")
+                HStack {
+                    switch viewModel.chronographMode {
+                    case .reset:
+                        Button("Start") {
+                            viewModel.chronographMode = .start
+                            viewModel.setChronograph()
+                        }
+                    case .start:
+                        Button("Pause") {
+                            viewModel.chronographMode = .pause
+                            viewModel.setChronograph()
+                        }
+                    case .pause:
+                        Button("Unpause") {
+                            viewModel.chronographMode = .unpause
+                            viewModel.setChronograph()
+                        }
+                        Button("Reset") {
+                            viewModel.chronographMode = .reset
+                            viewModel.setChronograph()
+                        }
+                    case .unpause:
+                        Button("Pause") {
+                            viewModel.chronographMode = .pause
+                            viewModel.setChronograph()
+                        }
+                    }
+                }
+            }
+        }
+        
         @ViewBuilder var connected: some View {
             VStack(spacing: 10) {
                 Button("Disconnect") {
@@ -122,6 +154,7 @@ struct idotmatrix_swiftApp: App {
                 common
                 fullscreenColor
                 clock
+                chronograph
             }
         }
         
