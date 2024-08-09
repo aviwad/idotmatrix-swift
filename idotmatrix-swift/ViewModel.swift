@@ -12,7 +12,7 @@ import SwiftBluetooth
 @Observable class ViewModel {
     let central: CentralManager
     var character: CBCharacteristic?
-    var brightness = 5.0
+    var brightness = 50.0
     var deviceStatus: DeviceStatusEnum = .on
     var device: Peripheral? = nil
     //var peripherals: [Peripheral]
