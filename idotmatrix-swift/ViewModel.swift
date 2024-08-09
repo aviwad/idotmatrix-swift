@@ -11,18 +11,26 @@ import SwiftBluetooth
 
 @Observable class ViewModel {
     let central: CentralManager
-    var character: CBCharacteristic?
-    var brightness = 50.0
     var deviceStatus: DeviceStatusEnum = .on
     var device: Peripheral? = nil
-    //var peripherals: [Peripheral]
-    //    enum deviceStatusEnum: String {
-    //        case on = "Just Turned On"
-    //        case searching = "Searching.."
-    //        case found = "Found a device!"
-    //        case connected = "Connected!"
-    //        case error = "Error"
-    //    }
+    var calendar = Calendar.current
+    var character: CBCharacteristic?
+    
+    // Common
+    var brightness = 50.0
+    var screenTurnedOn = true
+    var screenFlip = false
+    
+    // Fullscreen Color & Clock
+    var red = 0.0
+    var green = 0.0
+    var blue = 0.0
+    
+    // Clock
+    var clockStyle = 0
+    var visibleDate = false
+    var hour24 = true
+
     enum DeviceStatusEnum: Equatable {
         case on
         case searching
@@ -61,15 +69,14 @@ import SwiftBluetooth
     
     init() {
         central = CentralManager()
+        calendar.firstWeekday = 2
         searchAgain()
     }
     
-    func setBrightness() {
+    func sendData(data: Data) {
         guard let character else {
             return
         }
-        print(UInt8(brightness))
-        let data = Data([5, 0, 4, 128, UInt8(brightness)])
         device?.writeValue(data, for: character, type: .withoutResponse)
     }
     
@@ -107,17 +114,77 @@ import SwiftBluetooth
         guard let device else {
             deviceStatus = .on
             character = nil
+            screenTurnedOn = true
+            screenFlip = false
             return
         }
         central.cancelPeripheralConnection(device)
         self.device = nil
         deviceStatus = .on
         character = nil
+        screenTurnedOn = true
+        screenFlip = false
+    }
+}
+
+// Common
+extension ViewModel {
+    func setBrightness() {
+        let data = Data([5, 0, 4, 128, UInt8(brightness)])
+        sendData(data: data)
     }
     
-//    func connectToDevice() async {
-//        guard let device else {
-//            return
-//        }
-//    }
+    func freezeScreen() {
+        let data = Data([4,0,3,0])
+        sendData(data: data)
+    }
+    
+    func screenOff() {
+        let data = Data([5,0,7,1,0])
+        sendData(data: data)
+        screenTurnedOn = false
+    }
+    
+    func screenOn() {
+        let data = Data([5,0,7,1,1])
+        sendData(data: data)
+        screenTurnedOn = true
+    }
+    
+    func flipScreen() {
+        let data = Data([5,0,6,128,screenFlip ? 0 : 1])
+        screenFlip.toggle()
+        sendData(data: data)
+    }
+    
+    func setTime() {
+        let year = UInt8(calendar.component(.year, from: Date()) % 100)
+        let month = UInt8(calendar.component(.month, from: Date()))
+        let day = UInt8(calendar.component(.day, from: Date()))
+        let weekday = UInt8(calendar.component(.weekday, from: Date()))
+        let hour = UInt8(calendar.component(.hour, from: Date()))
+        let minute = UInt8(calendar.component(.minute, from: Date()))
+        let second = UInt8(calendar.component(.second, from: Date()))
+        let data = Data([11, 0, 1, 128, year, month, day, weekday, hour, minute, second])
+        sendData(data: data)
+    }
+    
+    // TODO: setJoint, setPassword, setSpeed
+}
+
+// Fullscreen Color
+extension ViewModel {
+    func setFullScreenColor() {
+        let data = Data([7,0,2,2,UInt8(self.red),UInt8(self.green),UInt8(self.blue)])
+        sendData(data: data)
+    }
+}
+
+// Clock
+extension ViewModel {
+    func setClock() {
+        let data = Data([8,0,6,1,UInt8(clockStyle | (visibleDate ? 128 : 0) | (hour24 ? 64 : 0)) ,UInt8(self.red),UInt8(self.green),UInt8(self.blue)])
+        sendData(data: data)
+    }
+    // TODO: setTimeIndicator,
 }
