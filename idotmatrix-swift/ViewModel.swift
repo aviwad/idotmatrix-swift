@@ -196,6 +196,7 @@ extension ViewModel {
     // TODO: setTimeIndicator,
 }
 
+// Chronograph
 extension ViewModel {
     func setChronograph() {
         let data = Data([5,0,9,128,UInt8(chronographMode.rawValue)])
