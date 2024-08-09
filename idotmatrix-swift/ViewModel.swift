@@ -30,6 +30,16 @@ import SwiftBluetooth
     var clockStyle = 0
     var visibleDate = false
     var hour24 = true
+    
+    // Chronograph
+    var chronographMode = chronographModeEnum.reset
+    
+    enum chronographModeEnum: Int {
+        case reset = 0
+        case start = 1
+        case pause = 2
+        case unpause = 3
+    }
 
     enum DeviceStatusEnum: Equatable {
         case on
@@ -184,4 +194,11 @@ extension ViewModel {
         sendData(data: data)
     }
     // TODO: setTimeIndicator,
+}
+
+extension ViewModel {
+    func setChronograph() {
+        let data = Data([5,0,9,128,UInt8(chronographMode.rawValue)])
+        sendData(data: data)
+    }
 }
