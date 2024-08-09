@@ -67,13 +67,13 @@ import SwiftBluetooth
     var labelIconSystemImage: String {
         switch deviceStatus {
         case .on:
-            "xmark.icloud"
+            "xmark.icloud.fill"
         case .searching:
             "magnifyingglass"
         case .connected:
-            "checkmark.icloud"
+            "checkmark.icloud.fill"
         case .error(_):
-            "exclamationmark.icloud"
+            "exclamationmark.icloud.fill"
         }
     }
     
