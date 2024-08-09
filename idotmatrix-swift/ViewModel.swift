@@ -40,6 +40,17 @@ import SwiftBluetooth
         case pause = 2
         case unpause = 3
     }
+    
+    // Countdown
+    var countdownMode = countdownModeEnum.disable
+    var minutes = 0.0
+    var seconds = 0.0
+    enum countdownModeEnum: Int {
+        case disable = 0
+        case start = 1
+        case pause = 2
+        case unpause = 3
+    }
 
     enum DeviceStatusEnum: Equatable {
         case on
@@ -200,6 +211,14 @@ extension ViewModel {
 extension ViewModel {
     func setChronograph() {
         let data = Data([5,0,9,128,UInt8(chronographMode.rawValue)])
+        sendData(data: data)
+    }
+}
+
+// Countdown
+extension ViewModel {
+    func setCountdown() {
+        let data = Data([7,0,8,128,UInt8(countdownMode.rawValue),UInt8(minutes),UInt8(seconds)])
         sendData(data: data)
     }
 }
