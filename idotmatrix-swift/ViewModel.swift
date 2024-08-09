@@ -54,7 +54,7 @@ import SwiftBluetooth
             "magnifyingglass"
         case .connected:
             "checkmark.icloud"
-        case .error(let _):
+        case .error(_):
             "exclamationmark.icloud"
         }
     }
