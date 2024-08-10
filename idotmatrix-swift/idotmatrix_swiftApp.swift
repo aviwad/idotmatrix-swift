@@ -228,6 +228,29 @@ struct idotmatrix_swiftApp: App {
             }
         }
         
+        @ViewBuilder var eco: some View {
+            VStack(spacing: 5) {
+                Text("Eco")
+                Button("Set Eco Schedule On") {
+                    viewModel.setEco()
+                }
+                Button("Cancel Eco") {
+                    viewModel.cancelEco()
+                }
+                DatePicker("Start Time", selection: $viewModel.startUpDate, displayedComponents: .hourAndMinute)
+                DatePicker("End Time", selection: $viewModel.endDate, displayedComponents: .hourAndMinute)
+                HStack {
+                    Text("Eco Brightness")
+                        .frame(width: 80)
+                    Slider(
+                        value: $viewModel.ecoBrightness,
+                        in: 5...100,
+                        step: 1.0
+                    )
+                }
+            }
+        }
+        
         @ViewBuilder var connected: some View {
             VStack(spacing: 10) {
                 HStack {
@@ -243,6 +266,7 @@ struct idotmatrix_swiftApp: App {
                 clock
                 chronograph
                 countdown
+                eco
             }
         }
         
