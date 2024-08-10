@@ -158,6 +158,58 @@ struct idotmatrix_swiftApp: App {
             }
         }
         
+        @ViewBuilder var countdown: some View {
+            VStack(spacing: 5) {
+                Text("Countdown")
+                HStack {
+                    Text("\(UInt8(viewModel.minutes)) Minutes")
+                        .frame(width: 80)
+                    Slider(
+                        value: $viewModel.minutes,
+                        in: 0...90,
+                        step: 1.0
+                    )
+                }
+                HStack {
+                    Text("\(UInt8(viewModel.seconds)) Seconds")
+                        .frame(width: 80)
+                    Slider(
+                        value: $viewModel.seconds,
+                        in: 0...59,
+                        step: 1.0
+                    )
+                }
+                HStack {
+                    switch viewModel.countdownMode {
+                    case .disable:
+                        Button("Start") {
+                            viewModel.countdownMode = .start
+                            viewModel.setCountdown()
+                        }
+                    case .start:
+                        Button("Pause") {
+                            viewModel.countdownMode = .pause
+                            viewModel.setCountdown()
+                        }
+                    case .pause:
+                        Button("Unpause") {
+                            viewModel.countdownMode = .unpause
+                            viewModel.setCountdown()
+                        }
+                        Button("Reset") {
+                            viewModel.countdownMode = .disable
+                            viewModel.setCountdown()
+                        }
+                    case .unpause:
+                        Button("Pause") {
+                            viewModel.countdownMode = .pause
+                            viewModel.setCountdown()
+                        }
+                    }
+                }
+            }
+        }
+        
         @ViewBuilder var connected: some View {
             VStack(spacing: 10) {
                 Button("Disconnect") {
@@ -167,6 +219,7 @@ struct idotmatrix_swiftApp: App {
                 fullscreenColor
                 clock
                 chronograph
+                countdown
             }
         }
         
