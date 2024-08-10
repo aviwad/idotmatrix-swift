@@ -52,10 +52,20 @@ struct idotmatrix_swiftApp: App {
         
         @ViewBuilder var fullscreenColor: some View {
             VStack(spacing: 5) {
-                Text("Fullscreen Color")
+                HStack {
+                    Text("Fullscreen Color")
+                    Rectangle()
+                        .fill(Color(red: viewModel.red/255, green: viewModel.green/255, blue: viewModel.blue/255))
+                        .frame(width: 20)
+                        .cornerRadius(5)
+                }
                 HStack {
                     Text("Red")
                         .frame(width: 50)
+                    Rectangle()
+                        .fill(Color(red: viewModel.red/255, green: 0, blue: 0))
+                        .frame(width: 20)
+                        .cornerRadius(5)
                     Slider(
                         value: $viewModel.red,
                         in: 0...255,
@@ -68,6 +78,10 @@ struct idotmatrix_swiftApp: App {
                 HStack {
                     Text("Green")
                         .frame(width: 50)
+                    Rectangle()
+                        .fill(Color(red: 0, green: viewModel.green/255, blue: 0))
+                        .frame(width: 20)
+                        .cornerRadius(5)
                     Slider(
                         value: $viewModel.green,
                         in: 0...255,
@@ -80,6 +94,10 @@ struct idotmatrix_swiftApp: App {
                 HStack {
                     Text("Blue")
                         .frame(width: 50)
+                    Rectangle()
+                        .fill(Color(red: 0, green: 0, blue: viewModel.blue/255))
+                        .frame(width: 20)
+                        .cornerRadius(5)
                     Slider(
                         value: $viewModel.blue,
                         in: 0...255,
