@@ -34,6 +34,11 @@ import SwiftBluetooth
     // Chronograph
     var chronographMode = chronographModeEnum.reset
     
+    // Eco
+    var startUpDate = Date()
+    var endDate = Date()
+    var ecoBrightness = 50.0
+    
     enum chronographModeEnum: Int {
         case reset = 0
         case start = 1
@@ -219,6 +224,21 @@ extension ViewModel {
 extension ViewModel {
     func setCountdown() {
         let data = Data([7,0,8,128,UInt8(countdownMode.rawValue),UInt8(minutes),UInt8(seconds)])
+        sendData(data: data)
+    }
+}
+
+// Eco
+extension ViewModel {
+    func setEco() {
+        // as per python3-idotmatrix-library, the flag is unknown and either a 1 or a 0
+        // for now using 1 to set it
+        let data = Data([10,0,2,128,1,UInt8(calendar.component(.hour, from: startUpDate)),UInt8(calendar.component(.minute, from: startUpDate)),UInt8(calendar.component(.hour, from: endDate)),UInt8(calendar.component(.minute, from: endDate)),UInt8(ecoBrightness)])
+        sendData(data: data)
+    }
+    
+    func cancelEco() {
+        let data = Data([10,0,2,128,0,0,0,0,0,0])
         sendData(data: data)
     }
 }
