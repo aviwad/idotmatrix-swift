@@ -212,8 +212,13 @@ struct idotmatrix_swiftApp: App {
         
         @ViewBuilder var connected: some View {
             VStack(spacing: 10) {
-                Button("Disconnect") {
-                    viewModel.disconnect()
+                HStack {
+                    Button("Disconnect Device") {
+                        viewModel.disconnect()
+                    }
+                    Button("Quit") {
+                        NSApplication.shared.terminate(nil)
+                    }
                 }
                 common
                 fullscreenColor
@@ -227,8 +232,13 @@ struct idotmatrix_swiftApp: App {
             Group {
                 Text(viewModel.statusDescription)
                 if viewModel.deviceStatus == .on {
-                    Button("Search Again") {
-                        viewModel.searchAgain()
+                    HStack {
+                        Button("Search Again") {
+                            viewModel.searchAgain()
+                        }
+                        Button("Quit") {
+                            NSApplication.shared.terminate(nil)
+                        }
                     }
                 }
                 if viewModel.deviceStatus == .connected {
