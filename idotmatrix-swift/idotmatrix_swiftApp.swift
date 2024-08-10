@@ -38,14 +38,17 @@ struct idotmatrix_swiftApp: App {
                             viewModel.flipScreen()
                         }
                 }
-                
-                Slider(
-                    value: $viewModel.brightness,
-                    in: 5...100,
-                    step: 1.0
-                )
-                .onChange(of: viewModel.brightness) {
-                    viewModel.setBrightness()
+                HStack {
+                    Text("Brightness")
+                        .frame(width: 80)
+                    Slider(
+                        value: $viewModel.brightness,
+                        in: 5...100,
+                        step: 1.0
+                    )
+                    .onChange(of: viewModel.brightness) {
+                        viewModel.setBrightness()
+                    }
                 }
             }
         }
