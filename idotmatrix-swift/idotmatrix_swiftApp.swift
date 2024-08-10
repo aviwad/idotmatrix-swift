@@ -53,29 +53,41 @@ struct idotmatrix_swiftApp: App {
         @ViewBuilder var fullscreenColor: some View {
             VStack(spacing: 5) {
                 Text("Fullscreen Color")
-                Slider(
-                    value: $viewModel.red,
-                    in: 0...255,
-                    step: 1.0
-                )
-                .onChange(of: viewModel.red) {
-                    viewModel.setFullScreenColor()
+                HStack {
+                    Text("Red")
+                        .frame(width: 50)
+                    Slider(
+                        value: $viewModel.red,
+                        in: 0...255,
+                        step: 1.0
+                    )
+                    .onChange(of: viewModel.red) {
+                        viewModel.setFullScreenColor()
+                    }
                 }
-                Slider(
-                    value: $viewModel.green,
-                    in: 0...255,
-                    step: 1.0
-                )
-                .onChange(of: viewModel.green) {
-                    viewModel.setFullScreenColor()
+                HStack {
+                    Text("Green")
+                        .frame(width: 50)
+                    Slider(
+                        value: $viewModel.green,
+                        in: 0...255,
+                        step: 1.0
+                    )
+                    .onChange(of: viewModel.green) {
+                        viewModel.setFullScreenColor()
+                    }
                 }
-                Slider(
-                    value: $viewModel.blue,
-                    in: 0...255,
-                    step: 1.0
-                )
-                .onChange(of: viewModel.blue) {
-                    viewModel.setFullScreenColor()
+                HStack {
+                    Text("Blue")
+                        .frame(width: 50)
+                    Slider(
+                        value: $viewModel.blue,
+                        in: 0...255,
+                        step: 1.0
+                    )
+                    .onChange(of: viewModel.blue) {
+                        viewModel.setFullScreenColor()
+                    }
                 }
             }
         }
