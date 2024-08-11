@@ -14,10 +14,18 @@ struct idotmatrix_swiftApp: App {
     
     struct Content: View {
         @Binding var viewModel: ViewModel
+        let elementSpacing = 8.0
+        let groupSpacing = 9.0
         
         @ViewBuilder var common: some View {
-            VStack(spacing: 5) {
-                Text("Common Screen Behaviour")
+            VStack(spacing: elementSpacing) {
+                HStack {
+                    Text("Common Screen Behaviour")
+                        .bold()
+                    Image(systemName: "display")
+                        .font(.system(size: 24))
+                        .frame(height: 40)
+                }
                 HStack {
                         if viewModel.screenTurnedOn {
                             Button("Off") {
@@ -55,13 +63,16 @@ struct idotmatrix_swiftApp: App {
         }
         
         @ViewBuilder var fullscreenColor: some View {
-            VStack(spacing: 5) {
+            VStack(spacing: elementSpacing) {
                 HStack {
                     Text("Fullscreen Color")
+                        .bold()
                     Rectangle()
                         .fill(Color(red: viewModel.red/255, green: viewModel.green/255, blue: viewModel.blue/255))
-                        .frame(width: 20)
+                        .frame(width: 25, height: 25)
                         .cornerRadius(5)
+                        .padding(.vertical, 7.5)
+                        .padding(.trailing, 15)
                 }
                 CompactSlider(
                     value: $viewModel.red,
@@ -115,8 +126,14 @@ struct idotmatrix_swiftApp: App {
         }
         
         @ViewBuilder var clock: some View {
-            VStack(spacing: 5) {
-                Text("Clock")
+            VStack(spacing: elementSpacing) {
+                HStack {
+                    Text("Clock")
+                        .bold()
+                    Image(systemName: "clock.fill")
+                        .font(.system(size: 24))
+                        .frame(height: 40)
+                }
                 Picker("Clock Style?", selection: $viewModel.clockStyle) {
                     Text("First").tag(0)
                     Text("Second").tag(1)
@@ -147,8 +164,14 @@ struct idotmatrix_swiftApp: App {
         }
         
         @ViewBuilder var chronograph: some View {
-            VStack(spacing: 5) {
-                Text("Chronograph")
+            VStack(spacing: elementSpacing) {
+                HStack {
+                    Text("Stopwatch")
+                        .bold()
+                    Image(systemName: "stopwatch.fill")
+                        .font(.system(size: 24))
+                        .frame(height: 40)
+                }
                 HStack {
                     switch viewModel.chronographMode {
                     case .reset:
@@ -181,16 +204,13 @@ struct idotmatrix_swiftApp: App {
         }
         
         @ViewBuilder var countdown: some View {
-            VStack(spacing: 5) {
-                Text("Countdown")
+            VStack(spacing: elementSpacing) {
                 HStack {
-                    Text("\(UInt8(viewModel.minutes)) Minutes")
-                        .frame(width: 80)
-                    Slider(
-                        value: $viewModel.minutes,
-                        in: 0...90,
-                        step: 1.0
-                    )
+                    Text("Timer")
+                        .bold()
+                    Image(systemName: "timer.circle.fill")
+                        .font(.system(size: 24))
+                        .frame(height: 40)
                 }
                 CompactSlider(
                     value: $viewModel.minutes,
@@ -240,8 +260,14 @@ struct idotmatrix_swiftApp: App {
         }
         
         @ViewBuilder var eco: some View {
-            VStack(spacing: 5) {
-                Text("Eco")
+            VStack(spacing: elementSpacing) {
+                HStack {
+                    Text("Eco")
+                        .bold()
+                    Image(systemName: "powersleep")
+                        .font(.system(size: 24))
+                        .frame(height: 40)
+                }
                 Button("Set Eco Schedule On") {
                     viewModel.setEco()
                 }
@@ -264,7 +290,7 @@ struct idotmatrix_swiftApp: App {
         }
         
         @ViewBuilder var connected: some View {
-            VStack(spacing: 10) {
+            VStack(spacing: groupSpacing) {
                 HStack {
                     Button("Disconnect Device") {
                         viewModel.disconnect()
@@ -283,8 +309,14 @@ struct idotmatrix_swiftApp: App {
         }
         
         var body: some View {
-            Group {
-                Text(viewModel.statusDescription)
+            VStack(spacing: groupSpacing) {
+                HStack {
+                    Text(viewModel.statusDescription)
+                        .bold()
+                    Image(systemName: viewModel.labelIconSystemImage)
+                        .font(.system(size: 24))
+                        .frame(height: 40)
+                }
                 if viewModel.deviceStatus == .on {
                     HStack {
                         Button("Search Again") {
