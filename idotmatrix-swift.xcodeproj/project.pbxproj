@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F352AF32C674AA700D107CD /* CompactSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 8F352AF22C674AA700D107CD /* CompactSlider */; };
 		8F3730642C65CF7D000421B9 /* idotmatrix_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3730632C65CF7D000421B9 /* idotmatrix_swiftApp.swift */; };
 		8F3730682C65CF7E000421B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F3730672C65CF7E000421B9 /* Assets.xcassets */; };
 		8F37306B2C65CF7E000421B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F37306A2C65CF7E000421B9 /* Preview Assets.xcassets */; };
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F352AF32C674AA700D107CD /* CompactSlider in Frameworks */,
 				8F3730752C65D189000421B9 /* SwiftBluetooth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +93,7 @@
 			name = "idotmatrix-swift";
 			packageProductDependencies = (
 				8F3730742C65D189000421B9 /* SwiftBluetooth */,
+				8F352AF22C674AA700D107CD /* CompactSlider */,
 			);
 			productName = "idotmatrix-swift";
 			productReference = 8F3730602C65CF7D000421B9 /* idotmatrix-swift.app */;
@@ -122,6 +125,7 @@
 			mainGroup = 8F3730572C65CF7D000421B9;
 			packageReferences = (
 				8F3730732C65D189000421B9 /* XCRemoteSwiftPackageReference "SwiftBluetooth" */,
+				8F352AF12C674AA700D107CD /* XCRemoteSwiftPackageReference "CompactSlider" */,
 			);
 			productRefGroup = 8F3730612C65CF7D000421B9 /* Products */;
 			projectDirPath = "";
@@ -359,6 +363,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8F352AF12C674AA700D107CD /* XCRemoteSwiftPackageReference "CompactSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/buh/CompactSlider.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.6;
+			};
+		};
 		8F3730732C65D189000421B9 /* XCRemoteSwiftPackageReference "SwiftBluetooth" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exPHAT/SwiftBluetooth.git";
@@ -370,6 +382,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8F352AF22C674AA700D107CD /* CompactSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F352AF12C674AA700D107CD /* XCRemoteSwiftPackageReference "CompactSlider" */;
+			productName = CompactSlider;
+		};
 		8F3730742C65D189000421B9 /* SwiftBluetooth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8F3730732C65D189000421B9 /* XCRemoteSwiftPackageReference "SwiftBluetooth" */;

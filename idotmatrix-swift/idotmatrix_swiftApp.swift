@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CompactSlider
 
 @main
 struct idotmatrix_swiftApp: App {
@@ -37,17 +38,18 @@ struct idotmatrix_swiftApp: App {
                             viewModel.flipScreen()
                         }
                 }
-                HStack {
+                CompactSlider(
+                    value: $viewModel.brightness,
+                    in: 5...100,
+                    step: 1
+                ) {
                     Text("Brightness")
-                        .frame(width: 80)
-                    Slider(
-                        value: $viewModel.brightness,
-                        in: 5...100,
-                        step: 1.0
-                    )
-                    .onChange(of: viewModel.brightness) {
-                        viewModel.setBrightness()
-                    }
+                    Spacer()
+                    Text(String(format: "%.0f%%", viewModel.brightness))
+                }
+                .frame(height: 24)
+                .onChange(of: viewModel.brightness) {
+                    viewModel.setBrightness()
                 }
             }
         }
@@ -61,53 +63,53 @@ struct idotmatrix_swiftApp: App {
                         .frame(width: 20)
                         .cornerRadius(5)
                 }
-                HStack {
+                CompactSlider(
+                    value: $viewModel.red,
+                    in: 0...255,
+                    step: 1.0
+                ) {
                     Text("Red")
-                        .frame(width: 50)
+                    Spacer()
                     Rectangle()
                         .fill(Color(red: viewModel.red/255, green: 0, blue: 0))
-                        .frame(width: 20)
+                        .frame(width: 25)
                         .cornerRadius(5)
-                    Slider(
-                        value: $viewModel.red,
-                        in: 0...255,
-                        step: 1.0
-                    )
-                    .onChange(of: viewModel.red) {
-                        viewModel.setFullScreenColor()
-                    }
                 }
-                HStack {
+                .frame(height: 24)
+                .onChange(of: viewModel.red) {
+                    viewModel.setFullScreenColor()
+                }
+                CompactSlider(
+                    value: $viewModel.green,
+                    in: 0...255,
+                    step: 1.0
+                ) {
                     Text("Green")
-                        .frame(width: 50)
+                    Spacer()
                     Rectangle()
                         .fill(Color(red: 0, green: viewModel.green/255, blue: 0))
-                        .frame(width: 20)
+                        .frame(width: 25)
                         .cornerRadius(5)
-                    Slider(
-                        value: $viewModel.green,
-                        in: 0...255,
-                        step: 1.0
-                    )
-                    .onChange(of: viewModel.green) {
-                        viewModel.setFullScreenColor()
-                    }
                 }
-                HStack {
+                .frame(height: 24)
+                .onChange(of: viewModel.green) {
+                    viewModel.setFullScreenColor()
+                }
+                CompactSlider(
+                    value: $viewModel.blue,
+                    in: 0...255,
+                    step: 1.0
+                ) {
                     Text("Blue")
-                        .frame(width: 50)
+                    Spacer()
                     Rectangle()
                         .fill(Color(red: 0, green: 0, blue: viewModel.blue/255))
-                        .frame(width: 20)
+                        .frame(width: 25)
                         .cornerRadius(5)
-                    Slider(
-                        value: $viewModel.blue,
-                        in: 0...255,
-                        step: 1.0
-                    )
-                    .onChange(of: viewModel.blue) {
-                        viewModel.setFullScreenColor()
-                    }
+                }
+                .frame(height: 24)
+                .onChange(of: viewModel.blue) {
+                    viewModel.setFullScreenColor()
                 }
             }
         }
@@ -190,15 +192,22 @@ struct idotmatrix_swiftApp: App {
                         step: 1.0
                     )
                 }
-                HStack {
-                    Text("\(UInt8(viewModel.seconds)) Seconds")
-                        .frame(width: 80)
-                    Slider(
-                        value: $viewModel.seconds,
-                        in: 0...59,
-                        step: 1.0
-                    )
+                CompactSlider(
+                    value: $viewModel.minutes,
+                    in: 0...90,
+                    step: 1.0
+                ) {
+                    Text(String(format: "%.0f Minutes", viewModel.minutes))
                 }
+                .frame(height: 24)
+                CompactSlider(
+                    value: $viewModel.seconds,
+                    in: 0...59,
+                    step: 1.0
+                ) {
+                    Text(String(format: "%.0f Seconds", viewModel.seconds))
+                }
+                .frame(height: 24)
                 HStack {
                     switch viewModel.countdownMode {
                     case .disable:
@@ -241,15 +250,16 @@ struct idotmatrix_swiftApp: App {
                 }
                 DatePicker("Start Time", selection: $viewModel.startUpDate, displayedComponents: .hourAndMinute)
                 DatePicker("End Time", selection: $viewModel.endDate, displayedComponents: .hourAndMinute)
-                HStack {
+                CompactSlider(
+                    value: $viewModel.ecoBrightness,
+                    in: 5...100,
+                    step: 1.0
+                ) {
                     Text("Eco Brightness")
-                        .frame(width: 80)
-                    Slider(
-                        value: $viewModel.ecoBrightness,
-                        in: 5...100,
-                        step: 1.0
-                    )
+                    Spacer()
+                    Text(String(format: "%.0f%%", viewModel.ecoBrightness))
                 }
+                .frame(height: 24)
             }
         }
         
