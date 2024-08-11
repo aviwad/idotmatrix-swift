@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftBluetooth
 
 @main
 struct idotmatrix_swiftApp: App {
