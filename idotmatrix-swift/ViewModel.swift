@@ -17,17 +17,69 @@ import SwiftBluetooth
     var character: CBCharacteristic?
     
     // Common
-    var brightness = 50.0
+    var brightness: Double {
+        get {
+            access(keyPath: \.brightness)
+            return UserDefaults.standard.double(forKey: "brightness")
+        }
+        set {
+            withMutation(keyPath: \.brightness) {
+                UserDefaults.standard.setValue(newValue, forKey: "brightness")
+            }
+        }
+    }
     var screenTurnedOn = true
     var screenFlip = false
     
     // Fullscreen Color & Clock
-    var red = 0.0
-    var green = 0.0
-    var blue = 0.0
+    var red: Double {
+        get {
+            access(keyPath: \.red)
+            return UserDefaults.standard.double(forKey: "red")
+        }
+        set {
+            withMutation(keyPath: \.red) {
+                UserDefaults.standard.setValue(newValue, forKey: "red")
+            }
+        }
+    }
+    var green: Double {
+        get {
+            access(keyPath: \.green)
+            return UserDefaults.standard.double(forKey: "green")
+        }
+        set {
+            withMutation(keyPath: \.green) {
+                UserDefaults.standard.setValue(newValue, forKey: "green")
+            }
+        }
+    }
+    var blue: Double {
+        get {
+            access(keyPath: \.blue)
+            return UserDefaults.standard.double(forKey: "blue")
+        }
+        set {
+            withMutation(keyPath: \.blue) {
+                UserDefaults.standard.setValue(newValue, forKey: "blue")
+            }
+        }
+    }
+//    var green = 0.0
+//    var blue = 0.0
     
     // Clock
-    var clockStyle = 0
+    var clockStyle: Int {
+        get {
+            access(keyPath: \.clockStyle)
+            return UserDefaults.standard.integer(forKey: "clockStyle")
+        }
+        set {
+            withMutation(keyPath: \.clockStyle) {
+                UserDefaults.standard.setValue(newValue, forKey: "clockStyle")
+            }
+        }
+    }
     var visibleDate = false
     var hour24 = true
     
@@ -124,6 +176,13 @@ import SwiftBluetooth
                     deviceStatus = .connected
                     if let service = try await device?.discoverServices().first, let character = try? await peripheral.discoverCharacteristics(for: service).first {
                         self.character = character
+                        deviceStatus = .connected
+                        try? await Task.sleep(nanoseconds: 100000000)
+                        // Sync time and clock on connection
+                        setClock()
+                        setTime()
+                        setBrightness()
+                        cancelEco()
                     }
                     return
                     // device?.writeValue(<#T##data: Data##Data#>, for: .)
