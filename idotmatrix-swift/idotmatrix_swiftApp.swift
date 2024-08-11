@@ -144,6 +144,7 @@ struct idotmatrix_swiftApp: App {
                     Text("Seventh").tag(6)
                     Text("Eighth").tag(7)
                 }
+                .labelsHidden()
                 .pickerStyle(.segmented)
                 .onChange(of: viewModel.clockStyle) {
                     viewModel.setClock()
