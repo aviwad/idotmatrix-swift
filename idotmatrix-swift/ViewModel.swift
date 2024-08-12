@@ -161,7 +161,7 @@ import SwiftBluetooth
     func searchAgain() {
         Task {
             try await central.waitUntilReady()
-            let peripherals = await central.scanForPeripherals()
+            let peripherals = await central.scanForPeripherals(timeout: 5)
             deviceStatus = .searching
             for try await peripheral in peripherals {
                 if peripheral.name?.hasPrefix("IDM-") == true {
@@ -173,7 +173,6 @@ import SwiftBluetooth
                     } catch {
                         print(error)
                     }
-                    deviceStatus = .connected
                     if let service = try await device?.discoverServices().first, let character = try? await peripheral.discoverCharacteristics(for: service).first {
                         self.character = character
                         deviceStatus = .connected
