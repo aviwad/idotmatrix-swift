@@ -4,6 +4,7 @@ Control your iDotMatrix / Aliexpress 32x32 pixel display from your macOS menubar
 <img width="354" alt="image" src="https://github.com/user-attachments/assets/b4941eea-f51a-4a58-a1ef-00bf72857d3e">
 <img width="356" alt="image" src="https://github.com/user-attachments/assets/b2590975-e83e-4515-9486-da9a2334e2e3">
 
+YouTube link: https://www.youtube.com/watch?v=x2EvAbusr5k
 
 Supports macOS 14
 
