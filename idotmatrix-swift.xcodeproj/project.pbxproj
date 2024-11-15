@@ -7,16 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F022C042C69582D0006E814 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F022C032C69582D0006E814 /* Content.swift */; };
+		8F27F0162CE6BB1800117E8E /* gifsicle in Resources */ = {isa = PBXBuildFile; fileRef = 8F27F0152CE6BB1800117E8E /* gifsicle */; };
 		8F352AF32C674AA700D107CD /* CompactSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 8F352AF22C674AA700D107CD /* CompactSlider */; };
+		8F352AF52C6842EB00D107CD /* Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F352AF42C6842EB00D107CD /* Intents.swift */; };
+		8F352AFB2C69530500D107CD /* FluidMenuBarExtra in Frameworks */ = {isa = PBXBuildFile; platformFilters = (macos, ); productRef = 8F352AFA2C69530500D107CD /* FluidMenuBarExtra */; };
 		8F3730642C65CF7D000421B9 /* idotmatrix_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3730632C65CF7D000421B9 /* idotmatrix_swiftApp.swift */; };
 		8F3730682C65CF7E000421B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F3730672C65CF7E000421B9 /* Assets.xcassets */; };
 		8F37306B2C65CF7E000421B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F37306A2C65CF7E000421B9 /* Preview Assets.xcassets */; };
 		8F3730752C65D189000421B9 /* SwiftBluetooth in Frameworks */ = {isa = PBXBuildFile; productRef = 8F3730742C65D189000421B9 /* SwiftBluetooth */; };
 		8F3730772C65D2A1000421B9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3730762C65D2A1000421B9 /* ViewModel.swift */; };
+		8F7B369D2CADB23600DB7FEC /* ColorPickerRing in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7B369C2CADB23600DB7FEC /* ColorPickerRing */; };
+		8F7B36A02CADB30600DB7FEC /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7B369F2CADB30600DB7FEC /* DynamicColor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8F3730602C65CF7D000421B9 /* idotmatrix-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "idotmatrix-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F022C032C69582D0006E814 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		8F27F0152CE6BB1800117E8E /* gifsicle */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = gifsicle; sourceTree = "<group>"; };
+		8F352AF42C6842EB00D107CD /* Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents.swift; sourceTree = "<group>"; };
+		8F3730602C65CF7D000421B9 /* Dot Matrix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dot Matrix.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F3730632C65CF7D000421B9 /* idotmatrix_swiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idotmatrix_swiftApp.swift; sourceTree = "<group>"; };
 		8F3730672C65CF7E000421B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F37306A2C65CF7E000421B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -30,7 +39,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7B369D2CADB23600DB7FEC /* ColorPickerRing in Frameworks */,
+				8F7B36A02CADB30600DB7FEC /* DynamicColor in Frameworks */,
 				8F352AF32C674AA700D107CD /* CompactSlider in Frameworks */,
+				8F352AFB2C69530500D107CD /* FluidMenuBarExtra in Frameworks */,
 				8F3730752C65D189000421B9 /* SwiftBluetooth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,7 +61,7 @@
 		8F3730612C65CF7D000421B9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8F3730602C65CF7D000421B9 /* idotmatrix-swift.app */,
+				8F3730602C65CF7D000421B9 /* Dot Matrix.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,8 +70,11 @@
 			isa = PBXGroup;
 			children = (
 				8F3730722C65D02F000421B9 /* Info.plist */,
+				8F27F0152CE6BB1800117E8E /* gifsicle */,
+				8F022C032C69582D0006E814 /* Content.swift */,
 				8F3730632C65CF7D000421B9 /* idotmatrix_swiftApp.swift */,
 				8F3730762C65D2A1000421B9 /* ViewModel.swift */,
+				8F352AF42C6842EB00D107CD /* Intents.swift */,
 				8F3730672C65CF7E000421B9 /* Assets.xcassets */,
 				8F37306C2C65CF7E000421B9 /* idotmatrix_swift.entitlements */,
 				8F3730692C65CF7E000421B9 /* Preview Content */,
@@ -78,9 +93,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8F37305F2C65CF7D000421B9 /* idotmatrix-swift */ = {
+		8F37305F2C65CF7D000421B9 /* Dot Matrix */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8F37306F2C65CF7E000421B9 /* Build configuration list for PBXNativeTarget "idotmatrix-swift" */;
+			buildConfigurationList = 8F37306F2C65CF7E000421B9 /* Build configuration list for PBXNativeTarget "Dot Matrix" */;
 			buildPhases = (
 				8F37305C2C65CF7D000421B9 /* Sources */,
 				8F37305D2C65CF7D000421B9 /* Frameworks */,
@@ -90,13 +105,16 @@
 			);
 			dependencies = (
 			);
-			name = "idotmatrix-swift";
+			name = "Dot Matrix";
 			packageProductDependencies = (
 				8F3730742C65D189000421B9 /* SwiftBluetooth */,
 				8F352AF22C674AA700D107CD /* CompactSlider */,
+				8F352AFA2C69530500D107CD /* FluidMenuBarExtra */,
+				8F7B369C2CADB23600DB7FEC /* ColorPickerRing */,
+				8F7B369F2CADB30600DB7FEC /* DynamicColor */,
 			);
 			productName = "idotmatrix-swift";
-			productReference = 8F3730602C65CF7D000421B9 /* idotmatrix-swift.app */;
+			productReference = 8F3730602C65CF7D000421B9 /* Dot Matrix.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -106,6 +124,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
@@ -126,12 +147,15 @@
 			packageReferences = (
 				8F3730732C65D189000421B9 /* XCRemoteSwiftPackageReference "SwiftBluetooth" */,
 				8F352AF12C674AA700D107CD /* XCRemoteSwiftPackageReference "CompactSlider" */,
+				8F352AF92C69530500D107CD /* XCRemoteSwiftPackageReference "fluid-menu-bar-extra" */,
+				8F7B369B2CADB23600DB7FEC /* XCRemoteSwiftPackageReference "ColorPicker" */,
+				8F7B369E2CADB30600DB7FEC /* XCRemoteSwiftPackageReference "DynamicColor" */,
 			);
 			productRefGroup = 8F3730612C65CF7D000421B9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8F37305F2C65CF7D000421B9 /* idotmatrix-swift */,
+				8F37305F2C65CF7D000421B9 /* Dot Matrix */,
 			);
 		};
 /* End PBXProject section */
@@ -143,6 +167,7 @@
 			files = (
 				8F37306B2C65CF7E000421B9 /* Preview Assets.xcassets in Resources */,
 				8F3730682C65CF7E000421B9 /* Assets.xcassets in Resources */,
+				8F27F0162CE6BB1800117E8E /* gifsicle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,8 +178,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F352AF52C6842EB00D107CD /* Intents.swift in Sources */,
 				8F3730772C65D2A1000421B9 /* ViewModel.swift in Sources */,
 				8F3730642C65CF7D000421B9 /* idotmatrix_swiftApp.swift in Sources */,
+				8F022C042C69582D0006E814 /* Content.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +245,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -274,6 +302,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
@@ -294,6 +323,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "idotmatrix-swift/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dot Matrix Display";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bro I need";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -304,8 +335,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "aviwadhwa.idotmatrix-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -324,6 +358,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "idotmatrix-swift/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dot Matrix Display";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bro I need";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -334,8 +370,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "aviwadhwa.idotmatrix-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -351,7 +390,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8F37306F2C65CF7E000421B9 /* Build configuration list for PBXNativeTarget "idotmatrix-swift" */ = {
+		8F37306F2C65CF7E000421B9 /* Build configuration list for PBXNativeTarget "Dot Matrix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F3730702C65CF7E000421B9 /* Debug */,
@@ -371,12 +410,36 @@
 				minimumVersion = 1.1.6;
 			};
 		};
+		8F352AF92C69530500D107CD /* XCRemoteSwiftPackageReference "fluid-menu-bar-extra" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lfroms/fluid-menu-bar-extra";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		8F3730732C65D189000421B9 /* XCRemoteSwiftPackageReference "SwiftBluetooth" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exPHAT/SwiftBluetooth.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
+			};
+		};
+		8F7B369B2CADB23600DB7FEC /* XCRemoteSwiftPackageReference "ColorPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hendriku/ColorPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+		8F7B369E2CADB30600DB7FEC /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yannickl/DynamicColor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -387,10 +450,25 @@
 			package = 8F352AF12C674AA700D107CD /* XCRemoteSwiftPackageReference "CompactSlider" */;
 			productName = CompactSlider;
 		};
+		8F352AFA2C69530500D107CD /* FluidMenuBarExtra */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F352AF92C69530500D107CD /* XCRemoteSwiftPackageReference "fluid-menu-bar-extra" */;
+			productName = FluidMenuBarExtra;
+		};
 		8F3730742C65D189000421B9 /* SwiftBluetooth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8F3730732C65D189000421B9 /* XCRemoteSwiftPackageReference "SwiftBluetooth" */;
 			productName = SwiftBluetooth;
+		};
+		8F7B369C2CADB23600DB7FEC /* ColorPickerRing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F7B369B2CADB23600DB7FEC /* XCRemoteSwiftPackageReference "ColorPicker" */;
+			productName = ColorPickerRing;
+		};
+		8F7B369F2CADB30600DB7FEC /* DynamicColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F7B369E2CADB30600DB7FEC /* XCRemoteSwiftPackageReference "DynamicColor" */;
+			productName = DynamicColor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
