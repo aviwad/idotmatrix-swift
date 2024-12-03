@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,9 +16,9 @@
 		8F3730682C65CF7E000421B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F3730672C65CF7E000421B9 /* Assets.xcassets */; };
 		8F37306B2C65CF7E000421B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F37306A2C65CF7E000421B9 /* Preview Assets.xcassets */; };
 		8F3730752C65D189000421B9 /* SwiftBluetooth in Frameworks */ = {isa = PBXBuildFile; productRef = 8F3730742C65D189000421B9 /* SwiftBluetooth */; };
-		8F3730772C65D2A1000421B9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3730762C65D2A1000421B9 /* ViewModel.swift */; };
 		8F7B369D2CADB23600DB7FEC /* ColorPickerRing in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7B369C2CADB23600DB7FEC /* ColorPickerRing */; };
 		8F7B36A02CADB30600DB7FEC /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7B369F2CADB30600DB7FEC /* DynamicColor */; };
+		8F9FDCEA2CF95707003874CE /* SpotifyScripting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FDCE92CF95707003874CE /* SpotifyScripting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +31,12 @@
 		8F37306A2C65CF7E000421B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8F37306C2C65CF7E000421B9 /* idotmatrix_swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = idotmatrix_swift.entitlements; sourceTree = "<group>"; };
 		8F3730722C65D02F000421B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8F3730762C65D2A1000421B9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		8F9FDCE92CF95707003874CE /* SpotifyScripting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyScripting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		8FA5086B2CFD266000AD0549 /* ViewModel */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModel; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8F37305D2C65CF7D000421B9 /* Frameworks */ = {
@@ -73,8 +77,9 @@
 				8F27F0152CE6BB1800117E8E /* gifsicle */,
 				8F022C032C69582D0006E814 /* Content.swift */,
 				8F3730632C65CF7D000421B9 /* idotmatrix_swiftApp.swift */,
-				8F3730762C65D2A1000421B9 /* ViewModel.swift */,
+				8F9FDCE92CF95707003874CE /* SpotifyScripting.swift */,
 				8F352AF42C6842EB00D107CD /* Intents.swift */,
+				8FA5086B2CFD266000AD0549 /* ViewModel */,
 				8F3730672C65CF7E000421B9 /* Assets.xcassets */,
 				8F37306C2C65CF7E000421B9 /* idotmatrix_swift.entitlements */,
 				8F3730692C65CF7E000421B9 /* Preview Content */,
@@ -104,6 +109,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8FA5086B2CFD266000AD0549 /* ViewModel */,
 			);
 			name = "Dot Matrix";
 			packageProductDependencies = (
@@ -179,7 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F352AF52C6842EB00D107CD /* Intents.swift in Sources */,
-				8F3730772C65D2A1000421B9 /* ViewModel.swift in Sources */,
+				8F9FDCEA2CF95707003874CE /* SpotifyScripting.swift in Sources */,
 				8F3730642C65CF7D000421B9 /* idotmatrix_swiftApp.swift in Sources */,
 				8F022C042C69582D0006E814 /* Content.swift in Sources */,
 			);
@@ -326,6 +334,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Dot Matrix Display";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = Spotify;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bro I need";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -361,6 +370,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Dot Matrix Display";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = Spotify;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bro I need";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (

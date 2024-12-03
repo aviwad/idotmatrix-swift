@@ -185,10 +185,7 @@ struct Content: View {
             HStack {
                 Button(action: {
                     Task {
-                        viewModel.photoUrl = await viewModel.selectImage()
-                        if let photoUrl = viewModel.photoUrl, let data = try? Data(contentsOf: photoUrl, options: .uncached) {
-                            
-                        }
+                        await viewModel.photoButtonClicked()
                     }
                    // viewModel.showGif.toggle()
                 }, label: {
